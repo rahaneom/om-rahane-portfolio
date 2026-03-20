@@ -10,7 +10,7 @@ const mail = ({ name, email, message }) =>
       limitRate: {
         throttle: 10000, // 10s
       },
-    }
+    },
   );
 
 export default mail;
