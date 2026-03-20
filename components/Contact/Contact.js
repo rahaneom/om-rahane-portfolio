@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import Filter from "bad-words";
 import toast, { Toaster } from "react-hot-toast";
-import Fade from "react-reveal/Fade";
+// import Fade from "react-reveal/Fade";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import mail from "./mailer";
@@ -179,7 +180,7 @@ const Contact = () => {
                       onComplete() {
                         buttonElementRef.current.classList.remove("active");
                       },
-                    }
+                    },
                   );
                 }, 1800);
               },
@@ -234,7 +235,7 @@ const Contact = () => {
     tl.from(
       sectionRef.current.querySelectorAll(".staggered-reveal"),
       { opacity: 0, duration: 0.5, stagger: 0.5 },
-      "<"
+      "<",
     );
 
     ScrollTrigger.create({
@@ -252,18 +253,18 @@ const Contact = () => {
     <section
       ref={sectionRef}
       id={MENULINKS[4].ref}
-      className="mt-30 w-full relative select-none bg-black pt-20 sm:pt-10 md:pt-5 lg:pt-1 pb-20"
+      className="relative w-full pt-20 pb-20 bg-black select-none mt-30 sm:pt-10 md:pt-5 lg:pt-1"
     >
       <div>
         <Toaster toastOptions={toastOptions} />
       </div>
-      <div className="section-container flex flex-col justify-center">
+      <div className="flex flex-col justify-center section-container">
         <div className="flex flex-col contact-wrapper">
           <div className="flex flex-col">
-            <p className="uppercase tracking-widest text-gray-light-1 staggered-reveal">
+            <p className="tracking-widest uppercase text-gray-light-1 staggered-reveal">
               CONTACT
             </p>
-            <h1 className="text-6xl mt-2 font-medium text-gradient w-fit staggered-reveal">
+            <h1 className="mt-2 text-6xl font-medium text-gradient w-fit staggered-reveal">
               Contact
             </h1>
           </div>
@@ -273,7 +274,12 @@ const Contact = () => {
         </div>
 
         <form className="pt-10 sm:mx-auto sm:w-[30rem] md:w-[35rem] staggered-reveal">
-          <Fade bottom distance={"4rem"}>
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             <div className="relative">
               <input
                 type="text"
@@ -285,7 +291,7 @@ const Contact = () => {
               />
               <label
                 htmlFor="name"
-                className="absolute top-0 left-0 h-full flex items-center pl-4 text-lg font-mono transform transition-all"
+                className="absolute top-0 left-0 flex items-center h-full pl-4 font-mono text-lg transition-all transform"
               >
                 Name
               </label>
@@ -302,7 +308,7 @@ const Contact = () => {
               />
               <label
                 htmlFor="email"
-                className="absolute top-0 left-0 h-full flex items-center pl-4 text-lg font-mono transform transition-all"
+                className="absolute top-0 left-0 flex items-center h-full pl-4 font-mono text-lg transition-all transform"
               >
                 Email
               </label>
@@ -318,12 +324,12 @@ const Contact = () => {
               />
               <label
                 htmlFor="message"
-                className="absolute top-0 left-0 h-14 flex items-center pl-4 text-lg font-mono transform transition-all"
+                className="absolute top-0 left-0 flex items-center pl-4 font-mono text-lg transition-all transform h-14"
               >
                 Message
               </label>
             </div>
-          </Fade>
+          </motion.div>
 
           {mailerResponse !== "not initiated" &&
             (mailerResponse === "success" ? (
@@ -332,7 +338,7 @@ const Contact = () => {
               <div className="hidden">{error()}</div>
             ))}
         </form>
-        <div className="mt-9 mx-auto link">
+        <div className="mx-auto mt-9 link">
           <button
             ref={buttonElementRef}
             className={styles.button}

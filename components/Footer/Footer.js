@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
-import { Fade } from "react-reveal";
+import { motion } from "framer-motion";
 import { Howl } from "howler";
 import Button from "../Button/Button";
 import FooterBg from "./FooterBg/FooterBg";
@@ -24,16 +24,21 @@ const Footer = () => {
 
   return (
     <footer
-      className="w-full relative select-none bg-cover"
+      className="relative w-full bg-cover select-none"
       style={{
         backgroundImage: `linear-gradient(to right, ${theme.colors.indigo.light}, ${theme.colors.indigo.dark})`,
       }}
     >
       <FooterBg />
-      <Fade bottom distance={"4rem"}>
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
         <div className="w-full h-full pt-32">
-          <div className="section-container flex flex-col h-full justify-end z-10 items-center py-12">
-            <h1 className="font-medium text-3xl md:text-4xl text-center">
+          <div className="z-10 flex flex-col items-center justify-end h-full py-12 section-container">
+            <h1 className="text-3xl font-medium text-center md:text-4xl">
               Feel free to connect on social media.
             </h1>
             <div className="text-center">
@@ -48,7 +53,7 @@ const Footer = () => {
                 Let&apos;s Talk
               </Button>
             </div>
-            <p className="text-center text-white text-sm sm:text-base font-medium tracking-wide mt-8">
+            <p className="mt-8 text-sm font-medium tracking-wide text-center text-white sm:text-base">
               Developed with{" "}
               <button onClick={handleClick} className="link cursor-none">
                 <span className="block animate-bounce">❤️</span>
@@ -57,7 +62,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-      </Fade>
+      </motion.div>
       <img
         src="/footer-curve.svg"
         className="w-full rotate-180"
