@@ -68,15 +68,15 @@ const Skills = () => {
           {skills.map((skill) => (
             <div
               key={skill}
-              className="flex items-center gap-2 px-4 py-2 text-sm text-gray-300 bg-[#111] rounded-full transition duration-300 transform hover:scale-105 hover:border-indigo-500 hover:text-white hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]"
+              className="flex items-center gap-2 px-4 py-2 text-base text-gray-300 bg-[#111] rounded-full transition duration-300 transform hover:scale-105 hover:border-indigo-500 hover:text-white hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]"
             >
               {/* ICON */}
               {hasIcon(skill) ? (
                 <Image
                   src={`/skills/${skill}.svg`}
                   alt={skill}
-                  width={18}
-                  height={18}
+                  width={20}
+                  height={20}
                   className="opacity-100"
                 />
               ) : (

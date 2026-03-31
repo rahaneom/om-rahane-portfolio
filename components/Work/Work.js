@@ -11,27 +11,29 @@ const Work = ({ isDesktop }) => {
   const tabItems = useMemo(
     () => [
       {
-        title: "Grapevine",
-        value: "grapevine",
+        title: "DRDO",
+        logo: "drdo.png",
+        value: "drdo",
         content: (
           <StickyScroll
             isDesktop={isDesktop}
-            contentItems={WORK_CONTENTS.GRAPEVINE}
+            contentItems={WORK_CONTENTS.DRDO}
           />
         ),
       },
       {
-        title: "Dukaan",
-        value: "dukaan",
+        title: "Sumago",
+        logo: "sumago.png",
+        value: "sumago",
         content: (
           <StickyScroll
             isDesktop={isDesktop}
-            contentItems={WORK_CONTENTS.DUKAAN}
+            contentItems={WORK_CONTENTS.SUMAGO}
           />
         ),
       },
     ],
-    [isDesktop]
+    [isDesktop],
   );
 
   useEffect(() => {
@@ -41,7 +43,7 @@ const Work = ({ isDesktop }) => {
         .from(
           sectionRef.current.querySelectorAll(".staggered-reveal"),
           { opacity: 0, duration: 0.5, stagger: 0.5 },
-          "<"
+          "<",
         );
 
       ScrollTrigger.create({

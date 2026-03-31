@@ -17,14 +17,14 @@ const Tab = ({ index, tab, activeTab, handleOnClick, setIsHovering }) => {
         <motion.div
           layoutId="clickedbutton"
           transition={{ type: "spring", bounce: 0.3, duration: 0.7 }}
-          className="absolute inset-0 bg-gray-dark-2 rounded-full"
+          className="absolute inset-0 rounded-full bg-gray-dark-2"
         />
       )}
 
       <span
         className={cn(
           "relative text-white top-[3px] link",
-          tab.value !== activeTab.value && "hover:text-gray-light-3"
+          tab.value !== activeTab.value && "hover:text-gray-light-3",
         )}
       >
         {tab.title}
@@ -33,29 +33,46 @@ const Tab = ({ index, tab, activeTab, handleOnClick, setIsHovering }) => {
   );
 };
 
-const TabsContent = ({ tabs, isHovering }) => {
+// const TabsContent = ({ tabs, isHovering }) => {
+//   return (
+//     <div className="relative w-full h-full">
+//       {tabs.map((tab, index) => {
+//         return (
+//           <motion.div
+//             key={tab.value}
+//             layoutId={tab.value}
+//             style={{
+//               scale: 1 - index * 0.1,
+//               top: isHovering ? index * -50 : 0,
+//               zIndex: -index,
+//               opacity: index < 3 ? 1 - index * 0.1 : 0,
+//             }}
+//             animate={{
+//               y: tab.value === tabs[0].value ? [0, 40, 0] : 0,
+//             }}
+//             className="absolute top-0 left-0 w-full h-full mt-24 md:mt-20"
+//           >
+//             {tab.content}
+//           </motion.div>
+//         );
+//       })}
+//     </div>
+//   );
+// };
+
+const TabsContent = ({ tabs }) => {
+  const activeTab = tabs[0]; // first one is always active
+
   return (
-    <div className="relative w-full h-full">
-      {tabs.map((tab, index) => {
-        return (
-          <motion.div
-            key={tab.value}
-            layoutId={tab.value}
-            style={{
-              scale: 1 - index * 0.1,
-              top: isHovering ? index * -50 : 0,
-              zIndex: -index,
-              opacity: index < 3 ? 1 - index * 0.1 : 0,
-            }}
-            animate={{
-              y: tab.value === tabs[0].value ? [0, 40, 0] : 0,
-            }}
-            className="w-full h-full absolute top-0 left-0 mt-24 md:mt-20"
-          >
-            {tab.content}
-          </motion.div>
-        );
-      })}
+    <div className="relative w-full mt-16">
+      <motion.div
+        key={activeTab.value}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {activeTab.content}
+      </motion.div>
     </div>
   );
 };
@@ -93,10 +110,10 @@ const Tabs = ({ tabItems }) => {
         ))}
       </div>
       <TabsContent
-        key={activeTab.value}
+        // key={activeTab.value}
         tabs={tabs}
-        activeTab={activeTab}
-        isHovering={isHovering}
+        // activeTab={activeTab}
+        // isHovering={isHovering}
       />
     </div>
   );

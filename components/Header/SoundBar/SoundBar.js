@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import audio from "../../../public/sounds/song.mp3";
+import audio from "../../../public/sounds/song3.mp3";
 
 const SoundBar = () => {
   const soundBarEl = useRef(null);
@@ -19,7 +19,7 @@ const SoundBar = () => {
 
   return (
     <div
-      className="soundBars link top-1 right-14 flex items-center justify-center"
+      className="flex items-center justify-center soundBars link top-1 right-14"
       onClick={togglePlayPause}
     >
       <span />

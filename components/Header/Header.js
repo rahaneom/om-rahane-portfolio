@@ -29,14 +29,14 @@ const Header = ({ children }) => {
   }, [handleKeyDown]);
 
   return (
-    <nav className="w-full fixed top-0 py-8 z-50 select-none bg-gradient-to-b from-black shadow-black transition-all duration-300">
+    <nav className="fixed top-0 z-50 w-full py-8 transition-all duration-300 select-none bg-gradient-to-b from-black shadow-black">
       <div className="flex justify-between section-container">
         <a href="#home" className="link">
           <Image
             src="/logo.svg"
-            alt="Logo - Shubh Porwal"
-            width={25}
-            height={25}
+            alt="Logo - Om Rahane"
+            width={120}
+            height={120}
           />
         </a>
         <div className="outer-menu relative flex items-center gap-8 z-[1]">
@@ -45,12 +45,12 @@ const Header = ({ children }) => {
             ref={inputRef}
             aria-labelledby="menu"
             aria-label="menu"
-            className="checkbox-toggle link absolute top-0 right-0 w-6 h-6 opacity-0"
+            className="absolute top-0 right-0 w-6 h-6 opacity-0 checkbox-toggle link"
             type="checkbox"
             onClick={handleClick}
           />
-          <div className="hamburger w-6 h-6 flex items-center justify-center">
-            <div className="relative flex-none w-full bg-white duration-300 flex items-center justify-center" />
+          <div className="flex items-center justify-center w-6 h-6 hamburger">
+            <div className="relative flex items-center justify-center flex-none w-full duration-300 bg-white" />
           </div>
           {children}
         </div>

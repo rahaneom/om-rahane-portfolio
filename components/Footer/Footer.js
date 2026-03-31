@@ -39,7 +39,7 @@ const Footer = () => {
         <div className="w-full h-full pt-32">
           <div className="z-10 flex flex-col items-center justify-end h-full py-12 section-container">
             <h1 className="text-3xl font-medium text-center md:text-4xl">
-              Feel free to connect on social media.
+              Feel free to connect with me on social media.
             </h1>
             <div className="text-center">
               <Profiles />
@@ -58,7 +58,7 @@ const Footer = () => {
               <button onClick={handleClick} className="link cursor-none">
                 <span className="block animate-bounce">❤️</span>
               </button>{" "}
-              by <span className="text-white">Shubh Porwal</span>
+              by <span className="text-white">Om Rahane</span>
             </p>
           </div>
         </div>

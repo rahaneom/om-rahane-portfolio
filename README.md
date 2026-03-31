@@ -1,6 +1,6 @@
 # devfolio
 
-<a href="https://shubhporwal.me">
+<a href="https://omrahane.vercel.app/">
   <img alt="devfolio" src="./public/preview.png" />
 </a>
 
@@ -14,7 +14,7 @@
 
 👨‍🎓 An eye-catching developer Portfolio, Built on NextJS, GSAP, Tailwind and React
 
-### ✨ [Live Demo](http://www.shubhporwal.me/)
+### ✨ [Live Demo](https://omrahane.vercel.app/)
 
 ## Getting Started
 
@@ -37,6 +37,3 @@ When people ask me whether they may use the code for their own website, I typica
 
 Every time I learn that someone has duplicated my website without giving me credit, it saddens me. This version of my website took a significant amount of work to construct, and I'm pleased of it! All I ask is that you empathize with my situation and leave the footer unaltered.
 
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=shubh73/devfolio&type=Date)](https://www.star-history.com/#shubh73/devfolio&Date)
