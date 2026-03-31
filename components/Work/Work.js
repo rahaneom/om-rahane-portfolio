@@ -62,7 +62,7 @@ const Work = ({ isDesktop }) => {
     <section
       ref={sectionRef}
       id={MENULINKS[3].ref}
-      className="relative w-full select-none xs:mt-40 sm:mt-72 mb-96"
+      className="relative w-full mb-32 select-none xs:mt-40 sm:mt-72"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

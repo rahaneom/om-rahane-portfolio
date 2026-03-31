@@ -29,7 +29,7 @@ const Collaboration = ({ clientHeight }) => {
       .from(
         sectionRef.current.querySelector(".ui-right"),
         { xPercent: smallScreen ? -500 : -150 },
-        "<"
+        "<",
       );
 
     ScrollTrigger.create({
@@ -55,27 +55,28 @@ const Collaboration = ({ clientHeight }) => {
   }, [quoteRef, sectionRef]);
 
   return (
-    <section ref={sectionRef} className="w-full relative select-none my-40">
+    <section ref={sectionRef} className="relative w-full mb-40 select-none">
       <div
         className={`${
           clientHeight > 650 ? "py-36" : "py-48"
         } section-container flex flex-col`}
       >
-        <p className="opacity-40 text-6xl sm:text-7xl font-semibold whitespace-nowrap ui-left transform-gpu">
+        <p className="text-6xl font-semibold opacity-40 sm:text-7xl whitespace-nowrap ui-left transform-gpu">
           {Array(5)
             .fill(
-              " Software Engineering Problem Solving Software Architecture "
+              // " Software Engineering Problem Solving Software Architecture "
+              " Kubernetes Redis System Design LLM Engineering ",
             )
             .reduce((str, el) => str.concat(el), "")}{" "}
         </p>
 
         <h1
           ref={quoteRef}
-          className="mt-6 md:mt-8 font-medium text-4xl md:text-5xl text-center"
+          className="mt-6 text-4xl font-medium text-center md:mt-8 md:text-5xl"
         >
-          Interested in{" "}
+          {/* Interested in{" "} */}
           <span
-            className="text-strong font-semibold"
+            className="font-semibold text-strong"
             style={{
               background:
                 "linear-gradient(90deg, #ffffff 0%, #ffffff 50%, #8b31ff 51%, #7000ff 102%)",
@@ -84,15 +85,15 @@ const Collaboration = ({ clientHeight }) => {
               WebkitTextFillColor: "transparent",
             }}
           >
-            Collaboration
+            Actively Learning
           </span>
-          ?
         </h1>
 
-        <p className="mt-6 md:mt-8 opacity-40 text-6xl sm:text-7xl font-semibold whitespace-nowrap ui-right transform-gpu">
+        <p className="mt-6 text-6xl font-semibold md:mt-8 opacity-40 sm:text-7xl whitespace-nowrap ui-right transform-gpu">
           {Array(5)
             .fill(
-              " Agile Development Frontend Development React Native Development "
+              // " Software Development Artificial Intelligence MERN Stack Development "
+              " Microservices Kafka Cloud Computing AI",
             )
             .reduce((str, el) => str.concat(el), "")}{" "}
         </p>

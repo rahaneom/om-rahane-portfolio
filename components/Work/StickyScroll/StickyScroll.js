@@ -43,7 +43,7 @@ const StickyScroll = ({ contentItems }) => {
             <div className="space-y-3 text-lg leading-relaxed text-gray-300">
               {item.description.map((line) => (
                 <p key={line} className="flex gap-3">
-                  <span className="text-gray-300">.</span>
+                  <span className="text-gray-300 ">.</span>
                   <span>{line}</span>
                 </p>
               ))}
@@ -54,7 +54,6 @@ const StickyScroll = ({ contentItems }) => {
             </p>
           )}
 
-          {/* TECHNOLOGIES */}
           <div>
             <h3 className="mb-3 text-sm tracking-widest text-gray-400 uppercase">
               Technologies
@@ -72,7 +71,58 @@ const StickyScroll = ({ contentItems }) => {
             </div>
           </div>
         </div>
+        {/* <div className="flex flex-col justify-center max-w-xl space-y-8 text-white">
+          <div className="flex items-center gap-4">
+            <div className="p-2 border rounded-lg bg-white/5 border-white/10 backdrop-blur-md">
+              <Image
+                src={`/work/${item.logo}`}
+                alt={item.title}
+                width={92}
+                height={92}
+                className="object-contain"
+              />
+            </div>
 
+            <h2 className="text-2xl font-semibold leading-tight md:text-3xl">
+              {item.title}
+            </h2>
+          </div>
+
+          <div className="space-y-4 text-lg leading-relaxed text-gray-300">
+            {item.description.map((line, i) => (
+              <div key={i} className="flex items-start gap-3 group">
+                <span
+                  className="mt-2.5 h-2 w-2 rounded-full bg-gradient-to-r from-purple-400 to-indigo-500 
+      transition-all duration-300 group-hover:scale-125 group-hover:shadow-[0_0_80px_rgb(87, 39, 149)]"
+                />
+
+                <p className="transition-all duration-300 group-hover:text-white group-hover:translate-x-1">
+                  {line}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="pt-2">
+            <h3 className="mb-4 text-xs tracking-[0.2em] text-gray-500 uppercase">
+              Technologies
+            </h3>
+
+            <div className="flex flex-wrap gap-3">
+              {item.tech.map((t) => (
+                <span
+                  key={t}
+                  className="px-4 py-1.5 text-sm rounded-full border border-white/10 
+          bg-white/5 backdrop-blur-md 
+          hover:bg-white hover:text-black 
+          transition-all duration-300 cursor-default"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div> */}
         {/* RIGHT SIDE CARD */}
         <div className="items-center justify-center hidden shadow-lg lg:flex h-60 w-80 rounded-xl bg-gradient-to-br from-pink-500 via-purple-500 to-blue-400">
           {item.content}
@@ -83,116 +133,3 @@ const StickyScroll = ({ contentItems }) => {
 };
 
 export default StickyScroll;
-
-// import React, { useState, useRef } from "react";
-// import { useMotionValueEvent, useScroll, motion } from "framer-motion";
-// import DotPattern from "../DotPattern/DotPattern";
-// import { cn } from "utils/cn";
-
-// const backgroundColors = ["#000000"];
-
-// const linearGradients = [
-//   "linear-gradient(to bottom right, #ef008f, #6ec3f4)",
-//   "linear-gradient(to bottom right, #6ec3f4, #7038ff)",
-//   "linear-gradient(to bottom right, #7038ff, #c9c9c9)",
-// ];
-
-// const StickyScroll = ({ contentItems }) => {
-//   const [activeCard, setActiveCard] = useState(0);
-//   const containerRef = useRef(null);
-
-//   const { scrollYProgress } = useScroll({
-//     container: containerRef,
-//     offset: ["start start", "end start"],
-//   });
-
-//   const cardLength = contentItems.length;
-
-//   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-//     const cardsBreakpoints = contentItems.map(
-//       (_, index) => index / cardLength - 0.1
-//     );
-
-//     const closestBreakpointIndex = cardsBreakpoints.reduce(
-//       (acc, breakpoint, index) => {
-//         const distance = Math.abs(latest - breakpoint);
-//         if (distance < Math.abs(latest - cardsBreakpoints[acc])) {
-//           return index;
-//         }
-//         return acc;
-//       },
-//       0
-//     );
-//     setActiveCard(closestBreakpointIndex);
-//   });
-
-//   return (
-//     <div className="relative">
-//       <DotPattern
-//         width={20}
-//         height={20}
-//         cx={1}
-//         cy={1}
-//         cr={1}
-//         className={cn(
-//           "[mask-image:linear-gradient(to_bottom_left,white,transparent,transparent)] rounded-2xl py-3 px-2 md:px-0 z-20"
-//         )}
-//       />
-
-//       <div className="absolute top-0 left-0 right-0 z-10 h-14 bg-gradient-to-b from-black to-transparent rounded-2xl" />
-//       <div className="absolute bottom-0 left-0 right-0 z-10 h-14 bg-gradient-to-t from-black to-transparent rounded-2xl" />
-
-//       <motion.div
-//         ref={containerRef}
-//         animate={{
-//           backgroundColor:
-//             backgroundColors[activeCard % backgroundColors.length],
-//         }}
-//         className="h-[28rem] flex justify-center space-x-10 p-4 rounded-2xl outline outline-1 outline-gray-dark-1 overflow-y-auto no-scrollbar"
-//       >
-//         <div className="flex items-start px-4">
-//           <div className="max-w-2xl">
-//             {contentItems.map((item, index) => (
-//               <div key={item.title + index} className="my-8">
-//                 <motion.h2
-//                   initial={{
-//                     opacity: 0,
-//                   }}
-//                   animate={{
-//                     opacity: activeCard === index ? 1 : 0.3,
-//                   }}
-//                   className="text-2xl font-bold text-slate-100"
-//                 >
-//                   {item.title}
-//                 </motion.h2>
-//                 <motion.p
-//                   initial={{
-//                     opacity: 0,
-//                   }}
-//                   animate={{
-//                     opacity: activeCard === index ? 1 : 0.3,
-//                   }}
-//                   className="max-w-sm mt-4 text-lg text-slate-300"
-//                 >
-//                   {item.description}
-//                 </motion.p>
-//               </div>
-//             ))}
-//             <div className="h-40" />
-//           </div>
-//         </div>
-//         <motion.div
-//           animate={{
-//             backgroundImage:
-//               linearGradients[activeCard % linearGradients.length],
-//           }}
-//           className="sticky hidden overflow-hidden bg-white lg:block h-60 w-80 rounded-xl top-10"
-//         >
-//           {contentItems[activeCard].content ?? null}
-//         </motion.div>
-//       </motion.div>
-//     </div>
-//   );
-// };
-
-// export default StickyScroll;
